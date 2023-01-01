@@ -3,6 +3,7 @@ import path from 'path';
 
 import * as dpsNFTStrategy from './dps-nft-strategy';
 import * as dKumaBreederStaked from './dkuma-breeder-staked';
+import * as kumaBreederStaked from './kuma-breeder-staked';
 import * as nounsPower from './nouns-rfp-power';
 import * as erc20Votes from './erc20-votes';
 import * as erc20VotesWithOverride from './erc20-votes-with-override';
@@ -418,6 +419,7 @@ import * as babywealthyclub from './babywealthyclub';
 const strategies = {
   'forta-shares': fortaShares,
   'dkuma-breeder-staked': dKumaBreederStaked,
+  'kuma-breeder-staked': kumaBreederStaked,
   'across-staked-acx': acrossStakedAcx,
   'ethermon-erc721': ethermon721,
   'recusal-list': recusalList,

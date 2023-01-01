@@ -6,21 +6,6 @@ import { Multicaller } from '../../utils';
 export const author = 'TheKdev9';
 export const version = '0.1.0';
 
-const dbreederAddress = '0x82a3D73B983396154Cff07101E84d7d339C4f0E3';
-const abi = {
-  inputs: [{ internalType: 'address', name: '', type: 'address' }],
-  name: 'stakeInfo',
-  outputs: [
-    { internalType: 'uint256', name: 'amount', type: 'uint256' },
-    { internalType: 'uint256', name: 'enteredAt', type: 'uint256' },
-    { internalType: 'uint256', name: 'rewardTaken', type: 'uint256' },
-    { internalType: 'uint256', name: 'rewardTakenActual', type: 'uint256' },
-    { internalType: 'uint256', name: 'bag', type: 'uint256' }
-  ],
-  stateMutability: 'view',
-  type: 'function'
-};
-
 interface walletInfoInt {
   amount: BigNumberish;
   enteredAt: BigNumberish;
@@ -39,9 +24,11 @@ export async function strategy(
 ): Promise<Record<string, number>> {
   const blockTag = typeof snapshot === 'number' ? snapshot : 'latest';
 
-  const multi = new Multicaller(network, provider, [abi], { blockTag });
+  const multi = new Multicaller(network, provider, [options.dbreeder.abi], {
+    blockTag
+  });
   addresses.forEach((address) =>
-    multi.call(address, dbreederAddress, 'stakeInfo', [address])
+    multi.call(address, options.dbreeder.address, 'stakeInfo', [address])
   );
   const result: Record<string, walletInfoInt> = await multi.execute();
 
@@ -67,7 +54,7 @@ export async function strategy(
 //     network,
 //     provider,
 //     [abi],
-//     addresses.map((address: any) => [dbreederAddress, abi.name, [address]]),
+//     addresses.map((address: any) => [options.dbreeder.address, abi.name, [address]]),
 //     { blockTag }
 //   );
 

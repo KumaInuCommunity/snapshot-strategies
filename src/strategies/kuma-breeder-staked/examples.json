@@ -4,27 +4,17 @@
     "strategy": {
       "name": "dkuma-breeder-staked",
       "params": {
-        "dbreeder": {
-          "address": "0x82a3D73B983396154Cff07101E84d7d339C4f0E3",
-          "abi": {
-            "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
-            "name": "stakeInfo",
-            "outputs": [
-              { "internalType": "uint256", "name": "amount", "type": "uint256" },
-              { "internalType": "uint256", "name": "enteredAt", "type": "uint256" },
-              { "internalType": "uint256", "name": "rewardTaken", "type": "uint256" },
-              { "internalType": "uint256", "name": "rewardTakenActual", "type": "uint256" },
-              { "internalType": "uint256", "name": "bag", "type": "uint256" }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-          }
+        "pid": 6,
+        "uniPair": {
+          "uniPairAddress": "0xB4EdfeC7Aa5588786901C63A8338e4b37611B2Af",
+          "tokenIndex": "0",
         },
         "decimals": 18
       }
     },
     "network": "1",
     "addresses": [
+      "0x3377607cB69cEa79A950De895f17895F90D2bF6D",
       "0x3aF143049Ce0FD256fe385f54745eb8FDeB85C3E",
       "0xa478c2975ab1ea89e8196811f51a7b7ade33eb11",
       "0xeF8305E140ac520225DAf050e2f71d5fBcC543e7",
